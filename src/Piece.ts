@@ -53,9 +53,15 @@ interface IPiece {
  * Pótold a hiányzó tulajdonságokat és metódusokat az interfész alapján.
  */
 export default class Piece implements IPiece {
-  
-  
-  
+  next: Piece | null;
+  prev: Piece | null;
+  x: number;
+  y: number;
+  el: HTMLDivElement;
+  direction: string;
+  type: string;
+  garden: HTMLDivElement;
+
   constructor({
     x,
     y,
@@ -166,7 +172,39 @@ export default class Piece implements IPiece {
     this.y = Y;
   }
 
+  /**
+   * Beállítja a típust.
+   * @param type {string} - a beállítandó típus
+   * 1. A this.type tulajdonságot beállítja a kapott type értékre.
+   * 2. Meghívja a this.applyClass metódust a változtatások érvényesítéséhez.
+   */
+  setType(type: string): void {
+    this.type = type;
+    this.applyClass();
+  }; 
 
+  /**
+   * Osztályokat állít be a this.el HTML elemre.
+   * 1. A this.el.className -et üres string -re állítja.
+   * 2. A this.el.classList.add metódussal hozzáad három új osztályt:
+   * 'cell', this.type, this.direction
+   */
+  applyClass(): void {
+    this.el.className = "";
+    this.el.classList.add('cell', this.type, this.direction);
+  };
+
+  /**
+   * Megállapítja, hogy ütközött-e a kígyó darabja valamivel.
+   * @param node {Piece}
+   * @returns {boolean}
+   * Ha a node null, akkor false értékkel tér vissza, 
+   * Ha nem, akkor akkor tér vissza true -val, ha a this.x egyenlő a node.x -el 
+   * és a this.y egyenlő a node.y -al.
+   */
+  isCollidingWith(node: Piece | null): boolean {
+    return node ? (((this.x === node.x) && (this.x === node.x)) ? true : false) : false;
+  };
 
   remove(): void {
     // Remove the piece, it"s location and HTML element
