@@ -28,6 +28,12 @@ export default class Game extends BaseGame {
     this.setEvents();
   }
 
+      /**
+     * @returns {number}
+     * Egy random számot szorozz meg a this.level.length -el, 
+     * majd kerekítsd lefelé, ez lesz az index.
+     * Majd térj vissza a this.levels tömbnek ezzel az indexével.
+     */
   getRandomLevel(): Level {
       return 
   }
