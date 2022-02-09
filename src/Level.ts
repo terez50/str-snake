@@ -26,7 +26,7 @@ export default class Level {
    */
 
   translate(x: number, y: number): Array<number> {
-    return [Math.round(x) * SIZE, Math.round(y) * SIZE];
+    return [Math.floor(x) * SIZE, Math.floor(y) * SIZE];
   }
 
   remove (): void {
@@ -82,7 +82,7 @@ export default class Level {
      * @var {number} rows - this.garden.clientWidth és SIZE hányadosa, 
      * lefelé kerekítve 
      */
-     let rows: number = Math.floor(this.garden.clientHeight / SIZE);
+     let rows: number = Math.floor(this.garden.clientWidth / SIZE);
     
     
     /** 
