@@ -31,10 +31,11 @@ export default abstract class BaseGame implements IBaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
-    abstract getRandomLevel(): Level {
-        let idx = Math.floor((Math.random() * this.level.length));
-        return this.level[idx];
-    };
+    // abstract getRandomLevel(): Level {
+    //     let idx = Math.floor((Math.random() * this.level.length));
+    //     return this.level[idx];
+    // };
+    abstract getRandomLevel(): number;
 
     /**
      * @returns {boolean}

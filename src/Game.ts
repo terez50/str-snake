@@ -34,8 +34,9 @@ export default class Game extends BaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
-  getRandomLevel(): Level {
-      return 
+  getRandomLevel(): number {
+    let index = Math.floor(Math.random() * this.levels.length)
+    return index;
   }
 
   get highScore (): number {
