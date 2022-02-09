@@ -28,6 +28,10 @@ export default class Game extends BaseGame {
     this.setEvents();
   }
 
+  getRandomLevel(): Level {
+      return 
+  }
+
   get highScore (): number {
     return parseInt(localStorage.getItem('high-score') || '0', 10) || 0;
   }

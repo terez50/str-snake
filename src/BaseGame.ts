@@ -15,6 +15,15 @@ export default abstract class BaseGame implements IBaseGame {
     protected keyHeld: number = 0;
 
     protected noClip: boolean = false;
+    head: Piece;
+    tail: Piece;
+    food: Piece | null = null;
+    goldenApple: Piece | null = null;
+    length: number = 0;
+    growth: number = 0;
+    score: number = 0;
+    currentLevel: Level | null = null;
+    garden: HTMLDivElement;
 
     /**
      * @returns {number}
@@ -22,7 +31,10 @@ export default abstract class BaseGame implements IBaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
-    abstract getRandomLevel(): Level;
+    abstract getRandomLevel(): Level {
+        let idx = Math.floor((Math.random() * this.level.length));
+        return this.level[idx];
+    };
 
     /**
      * @returns {boolean}
