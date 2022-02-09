@@ -67,7 +67,33 @@ export default class Game extends BaseGame {
     this.showScore();
   }
 
-  
+      /**
+     * @returns {boolean}
+     * 1. hozz létre egy chance neű változót 5 értékkel
+     * 2. hozz létre egy pick nevű változót, értéke random szám szorozva 100 -al
+     * 3. térj vissza true értékkel, ha a pick kisebb int a chance
+     */
+  mayIHaveGoldenApple(): boolean {
+    let chance = 5;
+    let pick = Math.random() * 100;
+    return pick < chance;
+  }
+
+      /**
+     * @returns {void}
+     * A metódus feladatai:
+     * 1. keresd meg a DOM -ban az összes .vertical-grid és .horizontal-grid 
+     * elemet
+     * 2. mentsd el őket egy grids nevű változóba
+     * 3. járd be a tömböt, és minden elemére hívd meg a Utils.removeNode 
+     * metódust, hogy eltávolítsd őket az oldalról
+     * 4. a this.gridVisible értékét állítsd false -ra
+     */
+  removeGrid(): void {
+    let grids = document.querySelectorAll('.vertical-grid, .horizontal-grid');
+    grids.forEach(i => Utils.removeNode(i));
+    this.gridVisible = false;
+  }
 
   // Remove the old chain, put HEAD in the starting position
   resetHead (): Piece {
