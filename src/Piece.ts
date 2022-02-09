@@ -203,7 +203,7 @@ export default class Piece implements IPiece {
    * és a this.y egyenlő a node.y -al.
    */
   isCollidingWith(node: Piece | null): boolean {
-    return node ? (((this.x === node.x) && (this.x === node.x)) ? true : false) : false;
+    return node ? (((this.x === node.x) && (this.y === node.y)) ? true : false) : false;
   };
 
   remove(): void {
