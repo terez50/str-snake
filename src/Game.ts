@@ -100,7 +100,7 @@ export default class Game extends BaseGame {
     let grids = document.querySelectorAll('.vertical-grid, .horizontal-grid');
     grids.forEach(i => Utils.removeNode(i));
     this.gridVisible = false;
-  }
+  };
 
   // Remove the old chain, put HEAD in the starting position
   resetHead (): Piece {
@@ -209,7 +209,7 @@ export default class Game extends BaseGame {
         this.growth += 1; // Snake got bigger
       }
 
-      this.updateScore(type === 'food' ? 10 : 50); // Calculate the new score
+      this.updateScore(type === 'food' ? 1 : -2); // Calculate the new score
       this.showScore(); // Update the score
     }
   }
@@ -276,6 +276,7 @@ export default class Game extends BaseGame {
     }
 
     this.score += won;
+    this.score = this.score % 20;
 
     return this.score;
   }

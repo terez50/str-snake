@@ -4,6 +4,7 @@ export enum keys {
   LEFT = 37,
   UP = 38,
   RIGHT = 39,
+  // RIGHT = 0 ,
   DOWN = 40,
   C = 67,
   G = 71,
