@@ -35,7 +35,7 @@ export default abstract class BaseGame implements IBaseGame {
     //     let idx = Math.floor((Math.random() * this.level.length));
     //     return this.level[idx];
     // };
-    abstract getRandomLevel(): number;
+    abstract getRandomLevel(): Level;
 
     /**
      * @returns {boolean}

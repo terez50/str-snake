@@ -34,9 +34,9 @@ export default class Game extends BaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
-  getRandomLevel(): number {
+  getRandomLevel(): Level {
     let index = Math.floor(Math.random() * this.levels.length)
-    return index;
+    return this.levels[index];
   }
 
   get highScore (): number {
@@ -98,7 +98,7 @@ export default class Game extends BaseGame {
      */
   removeGrid(): void {
     let grids = document.querySelectorAll('.vertical-grid, .horizontal-grid');
-    grids.forEach(i => Utils.removeNode(i));
+    grids.forEach(grid => Utils.removeNode(grid));
     this.gridVisible = false;
   };
 
